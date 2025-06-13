@@ -45,7 +45,7 @@
 ##Отправка запросов
 ```bash
 # Подключиться к MySQL
-docker exec -it winx_mysql mysql -uwinx_user -ppower_of_friendship winx_club_db
+docker exec -it winx_mysql mysql -uflora -ppower_of_friendship winx_club_db
 
 # Проверить данные
 SELECT * FROM winx_fairies;
