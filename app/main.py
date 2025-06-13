@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import mysql.connector
 from mysql.connector import pooling, Error
@@ -7,11 +8,27 @@ import os
 import time
 
 app = FastAPI(
-    title="Winx Club API",
-    description="Только вместе мы сильны, чудеса творить вольны и всегда устремлены к победе",
-    version="1.0"
+    title="Winx Club Magic API",
+    description="<b>Только вместе мы сильны, чудеса творить вольны </b>",
+    version="1.0",
+    contact={
+        "name": "Winx Fairy Support",
+        "url": "https://winx.fandom.com"
+    },
+    license_info={
+        "name": "Magic License v1.0",
+    },
+    swagger_ui_parameters={
+        "syntaxHighlight": True,
+        "tryItOutEnabled": True,
+        "displayRequestDuration": True,
+        "theme": "magic",
+    }
 )
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+app.swagger_ui_parameters["custom_css"] = "/static/swagger-theme.css"
 class Fairy(BaseModel):
     fairy_name: str
     age: int

@@ -1,0 +1,22 @@
+.swagger-ui .topbar {
+    background: linear-gradient(90deg, #6e45e2 0%, #88d3ce 100%) !important;
+}
+
+.swagger-ui .topbar-wrapper img {
+    content: url('/static/winx-logo.png');
+    width: 120px;
+}
+
+.swagger-ui .info .title {
+    color: #9f44d3 !important;
+    font-family: fantasy;
+}
+
+.opblock-tag {
+    background: rgba(110, 69, 226, 0.1) !important;
+    border-color: #6e45e2 !important;
+}
+
+.model-title {
+    color: #ff4e50 !important;
+}
