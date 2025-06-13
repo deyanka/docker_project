@@ -10,45 +10,23 @@
 
 ---
 
-## Требования
-
-- Docker 20.10+
-- Docker Compose 2.0+
-
----
 
 ## Установка и запуск
 
 1. Клонируйте репозиторий:
 
    
-    git clone https://github.com/your-repo/winx-api-git
+    git clone https://github.com/deyanka/docker_project
     cd winx-api-git
-    
-2. Создайте файл .env.db с переменными окружения для базы данных:
 
-   
-    MYSQL_ROOT_PASSWORD=power_of_friendship
-    MYSQL_DATABASE=winx_club_db
-    MYSQL_USER=winx_user
-    MYSQL_PASSWORD=magic123
     
-3. Создайте файл .env.app с настройками подключения к базе данных для FastAPI:
-
-   
-    DB_HOST=mysql
-    DB_PORT=3306
-    DB_NAME=winx_club_db
-    DB_USER=winx_user
-    DB_PASSWORD=magic123
-    
-4. Соберите и запустите контейнеры:
+2. Соберите и запустите контейнеры:
 
    
     docker-compose up --build
     
     Приложение будет доступно по адресу:  
-    [http://localhost:8000](http://localhost:8000)  
+    http://localhost:8000
 
 ---
 
@@ -79,7 +57,6 @@ SELECT * FROM winx_fairies;
 ```bash
 curl -X POST http://localhost:8000/fairies/ \
   -H "Content-Type: application/json" \
-
   -d '{"fairy_name":"Bloom","age":17,"zodiac_sign":"Dragon","wing_color":"Blue","magic_power":"Fire"}'
 ```
 
