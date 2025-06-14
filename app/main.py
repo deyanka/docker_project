@@ -10,25 +10,21 @@ import time
 app = FastAPI(
     title="Winx Club Magic API",
     description="<b>Только вместе мы сильны, чудеса творить вольны </b>",
-    version="1.0",
     contact={
-        "name": "Winx Fairy Support",
+        "name": "Winx Fairy all the important info",
         "url": "https://winx.fandom.com"
     },
-    license_info={
-        "name": "Magic License v1.0",
-    },
+    swagger_ui_css_url="/static/swagger-theme.css",
     swagger_ui_parameters={
         "syntaxHighlight": True,
         "tryItOutEnabled": True,
-        "displayRequestDuration": True,
-        "theme": "magic",
+        "displayRequestDuration": True
     }
 )
 
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-app.swagger_ui_parameters["custom_css"] = "/static/swagger-theme.css"
 class Fairy(BaseModel):
     fairy_name: str
     age: int
@@ -53,7 +49,7 @@ def wait_for_mysql():
             conn = mysql.connector.connect(
                 host=os.getenv("DB_HOST", "winx_mysql"),
                 user=os.getenv("DB_USER", "flora"),
-                password=os.getenv("DB_PASSWORD", "password"),
+                password=os.getenv("DB_PASSWORD"),
                 port=3306
             )
             conn.close()
@@ -69,7 +65,7 @@ wait_for_mysql()
 db_config = {
     "host": os.getenv("DB_HOST", "winx_mysql"),
     "user": os.getenv("DB_USER", "flora"),
-    "password": os.getenv("DB_PASSWORD", "password"),
+    "password": os.getenv("DB_PASSWORD"),
     "database": os.getenv("DB_NAME", "winx_club_db"),
     "pool_name": "winx_pool",
     "pool_size": 5,
